@@ -20,5 +20,30 @@ const cards = [
     {
         name:"Brandon Flowers",
         value: 72
+    },
+    {
+        name:"Adam Levine",
+        value:33
     }
 ]
+
+function groupItems(arr){
+    let newObj ={};
+
+    // logic to assign values
+
+    arr.forEach((itm)=>{
+        if(!newObj[itm.value]){
+            newObj[itm.value]=[itm];
+        } else{
+            newObj[itm.value].push(itm)
+        }
+    })
+
+    // .map always have to return something
+
+
+    return newObj;
+}
+
+console.log(groupItems(cards));
