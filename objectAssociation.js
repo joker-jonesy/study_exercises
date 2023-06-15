@@ -35,7 +35,7 @@ const users = [
     }
 ];
 
-const todo = [
+const todos = [
     {
         id: 1,
         userId: 1,
@@ -77,3 +77,25 @@ const todo = [
         name: "Take out t Trash"
     }
 ]
+
+function returnAssociations(user) {
+    const newUser = Object.assign({}, user);
+    newUser.tasks = [];
+    
+    // i would know how to do this with and without the for loop
+    newUser.tasks = todos.filter((itm)=>itm.userId===newUser.id)
+
+    return newUser;
+}
+
+function returnAllAssos(users){
+    const newUsers=[];
+
+    users.forEach((itm)=>{
+        newUsers.push(returnAssociations(itm))
+    })
+
+    return newUsers;
+}
+
+console.log(returnAllAssos(users)[0].tasks);
